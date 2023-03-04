@@ -13,3 +13,7 @@ Sitio HTML/CSS que explica el proyecto, sus tecnologías y el equipo participant
 ## Estado
 
 La página contiene enlaces vacíos y un formulario de contacto sin un servicio de envío configurado en el HTML. Debe presentarse como una página académica en evolución. Conserva los créditos del equipo declarados en la página.
+
+## Cambios de comportamiento
+
+Los enlaces de navegación apuntan a sus secciones. El formulario prepara un correo en la aplicación del visitante; el envío debe completarse allí. No existe un servicio de recepción de formularios en esta landing.

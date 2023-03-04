@@ -23,10 +23,10 @@
                 <ul>
                     <li class="active"><a href="#inicio">Inicio</a></li>
                     <li><a href="#información">¿Que es Qallariy?</a></li>
-                    <li><a href="">Nosotros</a></li>
-                    <li><a href="">Equipo</a></li>
-                    <li><a href="">Tecnologías</a></li>
-                    <li><a href="">Contacto</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#equipo">Equipo</a></li>
+                    <li><a href="#tecnologias">Tecnologías</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
         </nav>
@@ -35,9 +35,9 @@
                 <h1>Qallariy</h1>
                 <p>"Nuestra herramienta te permite calcular la distribución de la utilidad neta de tu inversión entre los socios de tu empresa de manera sencilla y eficiente"</p>
             </div>
-            <a href="">
+            <a href="https://github.com/ErikJhonatan/Qallariy-App">
                 <span class="hero-btn">
-                    Prueba Qallariy<div class="external-link"></div>
+                    Ver calculadora<div class="external-link"></div>
                  </span>
             </a>
 
@@ -58,7 +58,7 @@
             </div>
 
         </section>
-        <section class="section-main about-us">
+        <section id="nosotros" class="section-main about-us">
             <div class="about-us-content">
                 <h1>
                     Nosotros
@@ -74,7 +74,7 @@
                 </p>
             </div>
         </section>
-        <section class="section-main team-work ">
+        <section id="equipo" class="section-main team-work ">
             <div class="team-work-content">
                 <h1>
                     Equipo
@@ -99,19 +99,19 @@
                 </li>
             </div>
         </section>
-        <section class="section-main">
+        <section id="tecnologias" class="section-main">
             <h1>Tecnologías</h1>
             <div>
                 <div>
-                    <img src="" alt="">
+                    
                     <p>HTML</p>
                 </div>
                 <div>
-                    <img src="" alt="">
+                    
                     <p>CSS</p>
                 </div>
                 <div>
-                    <img src="" alt="">
+                    
                     <p>JavaScript</p>
                 </div>
             </div>
@@ -119,18 +119,19 @@
                 Este proyecto se ha desarrollado utilizando tecnologías web estándar como HTML, CSS y JavaScript. Se ha utilizado HTML5 para estructurar la página, CSS3 para darle estilo y diseño, y JavaScript para realizar los cálculos necesarios para la calculadora de distribución de utilidades.
             </p>
         </section>
-        <section class="section-main">
+        <section id="contacto" class="section-main">
             <h1>
                 Contacto
             </h1>
             <p>
                 Si tienes alguna duda o sugerencia, no dudes en contactarnos.
             </p>
-            <form action="">
-                <input type="text" placeholder="Nombre">
-                <input type="email" placeholder="Correo">
-                <textarea placeholder="Mensaje"></textarea>
-                <button>Enviar</button>
+            <form id="contact-form">
+                <input type="text" name="name" aria-label="Nombre" placeholder="Nombre" required>
+                <input type="email" name="email" aria-label="Correo" placeholder="Correo" required>
+                <textarea name="message" aria-label="Mensaje" placeholder="Mensaje" required></textarea>
+                <button type="submit">Preparar correo</button>
+                <p role="status" id="contact-status"></p>
             </form>
         </section>
     </main>
@@ -163,5 +164,15 @@
             </div>
         </div>
     </footer>
+<script>
+    document.querySelector('#contact-form').addEventListener('submit', event => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const subject = encodeURIComponent('Consulta Qallariy: ' + form.elements.name.value.trim());
+        const body = encodeURIComponent(form.elements.message.value.trim() + '\n\nCorreo: ' + form.elements.email.value.trim());
+        document.querySelector('#contact-status').textContent = 'Se abrirá tu aplicación de correo. Envía el mensaje allí para completar el contacto.';
+        window.location.href = 'mailto:marcaloayzae@gmail.com?subject=' + subject + '&body=' + body;
+    });
+</script>
 </body>
 </html>
